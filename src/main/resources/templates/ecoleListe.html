@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecoles</title>
+    <link rel="stylesheet" href="/ecoleListe.css">
+</head>
+
+<body>
+    <a href="/Ecoles/ecoleForm">
+        <button>Créer Ecole</button>
+    </a>
+<table>
+    <thead>
+    <tr>
+        <th>Nom de l'école</th>
+        <th>Adresse de l'école</th>
+        <th>Numéro de téléphone de l'école</th>
+        <th>email de l'école</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Boucle pour afficher les écoles -->
+    <tr th:each="ecole : ${ecoles}">
+        <td th:text="${ecole.nomEcole}"></td>
+        <td th:text="${ecole.adresseEcole}"></td>
+        <td th:text="${ecole.numeroTelephoneEcole}"></td>
+        <td th:text="${ecole.emailEcole}"></td>
+        <td>
+            <button id="b1">Ajouter Filière</button>
+            <button id="b2">Voir Filières</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

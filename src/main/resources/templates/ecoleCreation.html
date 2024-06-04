@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une école</title>
+    <link rel="stylesheet" href="/ecoleCreation.css">
+</head>
+<body>
+<h1>Créer une école</h1>
+
+<form th:action="@{/Ecoles/creerEcole}" th:object="${ecole}" method="post">
+    <label for="nomEcole">Nom de l'école :</label>
+    <input type="text" id="nomEcole" th:field="*{nomEcole}" required>
+
+    <label for="adresseEcole">Adresse de l'école :</label>
+    <input type="text" id="adresseEcole" th:field="*{adresseEcole}" required>
+
+    <label for="numeroTelephoneEcole">Numéro de téléphone de l'école :</label>
+    <input type="text" id="numeroTelephoneEcole" th:field="*{numeroTelephoneEcole}" required>
+
+    <label for="emailEcole">email de l'école :</label>
+    <input type="text" id="emailEcole" th:field="*{emailEcole}" required>
+
+    <button type="submit">enregistrer</button>
+</form>
+</body>
+</html>

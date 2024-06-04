@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-@RequestMapping("/filieres")
+@RequestMapping("/Filieres")
 @RestController
 @AllArgsConstructor
 public class FiliereController {

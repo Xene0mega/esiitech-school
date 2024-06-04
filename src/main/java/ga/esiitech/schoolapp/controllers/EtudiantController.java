@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RequestMapping("/etudiants")
+@RequestMapping("/Etudiants")
 @RestController
 @AllArgsConstructor
 public class EtudiantController {

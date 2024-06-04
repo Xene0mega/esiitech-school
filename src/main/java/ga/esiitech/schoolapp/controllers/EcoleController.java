@@ -1,17 +1,16 @@
 package ga.esiitech.schoolapp.controllers;
 
 import ga.esiitech.schoolapp.entities.Ecole;
-import ga.esiitech.schoolapp.entities.Etudiant;
 import ga.esiitech.schoolapp.services.EcoleService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
 import java.util.Optional;
 
-@RequestMapping("/ecoles")
+@RequestMapping("/Ecoles")
 @RestController
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,15 +30,28 @@ public class EcoleController {
         Ecole ecole = ecoleService.ajouterEtudiantEcole(idEcole, idEtudiant);
         return ecole;
     }
+    @GetMapping("/ecoleForm")
+    public ModelAndView creerEcoleForm() {
+        ModelAndView modelAndView = new ModelAndView("ecoleCreation");
+        modelAndView.addObject("ecole",   new Ecole());
+        return modelAndView;
+    }
     @PostMapping("/creerEcole")
-    public String creerEcole(@RequestBody Ecole ecole) {
-        ecoleService.creerEcole(ecole);
-        return "Vous venez de créer l'école " + ecole.getNomEcole();
+    public ModelAndView creerEcole(Ecole ecole) {
+        try {
+            ecoleService.creerEcole(ecole);
+            ModelAndView modelAndView = new ModelAndView("redirect:/Ecoles/getAllEcole");
+            return modelAndView;
+        } catch (Exception e) {
+            return new ModelAndView("ecoleCreation");
+        }
     }
 
     @GetMapping("/getAllEcole")
-    public List<Ecole> getAllEcole() {
-        return ecoleService.getAllEcole();
+    public ModelAndView getAllEcole() {
+        ModelAndView modelAndView = new ModelAndView("ecoleListe");
+        modelAndView.addObject("ecoles", ecoleService.getAllEcole());
+       return modelAndView;
     }
 
     @GetMapping("/getEcoleById/{idEcole}")
