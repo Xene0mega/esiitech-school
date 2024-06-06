@@ -1,4 +1,4 @@
-/* ecoleCreation.css */
+/* ecoleUpdate.css */
 
 body {
     font-family: Arial, sans-serif;
@@ -27,7 +27,8 @@ label {
 }
 
 input[type="text"],
-input[type="email"]{
+input[type="email"],
+input[type="tel"] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

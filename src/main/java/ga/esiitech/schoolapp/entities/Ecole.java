@@ -20,7 +20,7 @@ public class Ecole {
     @Column(name = "nomEcole", length = 20, nullable = false)
     private String nomEcole;
 
-    @Column(name = "adresseEcole", length = 25, nullable = false)
+    @Column(name = "adresseEcole", length = 55, nullable = false)
     private String adresseEcole;
 
     @Column(name = "numeroTelephoneEcole", length = 10, unique = true, nullable = false)

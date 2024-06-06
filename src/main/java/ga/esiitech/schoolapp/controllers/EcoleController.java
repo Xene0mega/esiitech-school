@@ -6,8 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("/Ecoles")
@@ -19,39 +19,27 @@ public class EcoleController {
     @Autowired
     private EcoleService ecoleService;
 
-    @PostMapping("/{idEcole}/filiere/{idFiliere}")
+    @PostMapping("/ajouterFiliere")
     public Ecole ajoutFiliereEcole(@PathVariable Long idEcole, @PathVariable Long idFiliere) {
-        Ecole ecole = ecoleService.ajoutFiliereEcole(idEcole, idFiliere);
-        return ecole;
+        return ecoleService.ajoutFiliereEcole(idEcole, idFiliere);
+
     }
 
-    @PostMapping("/{idEcole}/ajouterEtudiant")
+    @PostMapping("/ajouterEtudiant")
     public Ecole ajouterEtudiantEcole(@PathVariable Long idEcole, @PathVariable Long idEtudiant) {
-        Ecole ecole = ecoleService.ajouterEtudiantEcole(idEcole, idEtudiant);
-        return ecole;
-    }
-    @GetMapping("/ecoleForm")
-    public ModelAndView creerEcoleForm() {
-        ModelAndView modelAndView = new ModelAndView("ecoleCreation");
-        modelAndView.addObject("ecole",   new Ecole());
-        return modelAndView;
+        return ecoleService.ajouterEtudiantEcole(idEcole, idEtudiant);
+
     }
     @PostMapping("/creerEcole")
-    public ModelAndView creerEcole(Ecole ecole) {
-        try {
-            ecoleService.creerEcole(ecole);
-            ModelAndView modelAndView = new ModelAndView("redirect:/Ecoles/getAllEcole");
-            return modelAndView;
-        } catch (Exception e) {
-            return new ModelAndView("ecoleCreation");
-        }
+    public Ecole creerEcole(Ecole ecole) {
+        return ecoleService.enregistrerEcole(ecole);
+
     }
 
     @GetMapping("/getAllEcole")
-    public ModelAndView getAllEcole() {
-        ModelAndView modelAndView = new ModelAndView("ecoleListe");
-        modelAndView.addObject("ecoles", ecoleService.getAllEcole());
-       return modelAndView;
+    public List<Ecole> getAllEcole() {
+      return ecoleService.getAllEcole();
+
     }
 
     @GetMapping("/getEcoleById/{idEcole}")

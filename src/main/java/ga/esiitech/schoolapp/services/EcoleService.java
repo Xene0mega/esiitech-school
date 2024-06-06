@@ -20,7 +20,7 @@ public class EcoleService{
     private final FiliereDao filiereDao;
     private final EtudiantDao etudiantDao;
 
-    public Ecole creerEcole(Ecole ecole) {
+    public Ecole enregistrerEcole(Ecole ecole) {
         return ecoleDao.save(ecole);
     }
 

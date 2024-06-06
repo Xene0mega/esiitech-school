@@ -30,4 +30,8 @@ public class Matiere {
     @ManyToOne
     @JoinColumn(name="FILIERE_ID", referencedColumnName="idFiliere")
     private Filiere filiere;
+
+    @ManyToOne
+    @JoinColumn(name="ECOLE_ID", referencedColumnName="idEcole")
+    private Ecole ecole;
 }

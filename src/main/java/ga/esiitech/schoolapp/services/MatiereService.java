@@ -34,6 +34,7 @@ public class MatiereService {
             newMatiere.setCoefficientMatiere(matiere.getCoefficientMatiere());
             newMatiere.setVolumeHoraireMatiere(matiere.getVolumeHoraireMatiere());
             newMatiere.setFiliere(matiere.getFiliere());
+            newMatiere.setEcole(matiere.getEcole());
 
         }
         return null;

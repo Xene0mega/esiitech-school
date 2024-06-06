@@ -23,14 +23,29 @@ button {
     position: relative;
     left: 0px;
     top: 0px;
-    padding: 15px;
+    padding: 9px;
 }
 
 #b2 {
     position: relative;
     left: 10px;
     top: 0px;
-    padding: 15px;
+    padding: 9px;
+
+}
+#b3 {
+    position: relative;
+    left: 20px;
+    top: 0px;
+    padding: 9px;
+    background-color: #8B0000;
+}
+#b4{
+    position: relative;
+    left: 20px;
+    top: 0px;
+    padding: 9px;
+    background-color: #00698f;
 }
 
 button:hover {

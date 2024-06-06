@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <a href="/Ecoles/ecoleForm">
+    <a href="/View/ecoleForm">
         <button>Créer Ecole</button>
     </a>
 <table>
@@ -29,8 +29,18 @@
         <td th:text="${ecole.numeroTelephoneEcole}"></td>
         <td th:text="${ecole.emailEcole}"></td>
         <td>
+            <a th:href="@{/View/filiereForm/{idEcole}(idEcole=${ecole.idEcole})}">
             <button id="b1">Ajouter Filière</button>
+          </a>
             <button id="b2">Voir Filières</button>
+
+            <a th:href="@{/View/supprimerEcole/{idEcole}(idEcole=${ecole.idEcole})}">
+            <button id="b3">supprimer ecole</button>
+            </a>
+
+            <a th:href="@{/View/ecoleUpdateForm/{idEcole}(idEcole=${ecole.idEcole})}">
+                <button id="b4">modifier ecole</button>
+            </a>
         </td>
     </tr>
     </tbody>
