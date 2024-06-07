@@ -30,7 +30,6 @@ public class EtudiantService {
 
         return etudiantDao.save(etudiant);
     }
-
         public Etudiant modifierEtudiant(Etudiant etudiant, Long IdEtudiant) {
 
             Optional<Etudiant> etudiantExistant = etudiantDao.findById(IdEtudiant);
@@ -41,7 +40,7 @@ public class EtudiantService {
                 newEtudiant.setGenreEtudiant(etudiant.getGenreEtudiant());
                 newEtudiant.setAgeEtudiant(etudiant.getAgeEtudiant());
                 newEtudiant.setEmailEtudiant(etudiant.getEmailEtudiant());
-                newEtudiant.setAdressseEtudiant(etudiant.getAdressseEtudiant());
+                newEtudiant.setAdresseEtudiant(etudiant.getAdresseEtudiant());
                 newEtudiant.setNumeroTelephoneEtudiant(etudiant.getNumeroTelephoneEtudiant());
                 newEtudiant.setQuartierEtudiant(etudiant.getQuartierEtudiant());
                 newEtudiant.setFiliere(etudiant.getFiliere());

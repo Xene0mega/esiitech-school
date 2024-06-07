@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des étudiants</title>
+    <link rel="stylesheet" href="/etudiantListe.css">
+</head>
+<body>
+<a href="/View/getAllEcole">
+    <button>retour à acceil</button>
+</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Age</th>
+        <th>Genre</th>
+        <th>Numéro de téléphone</th>
+        <th>Email</th>
+        <th>Adresse</th>
+        <th>Quartier</th>
+        <th>Filière</th>
+        <th>Ecole</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="etudiant : ${etudiants}">
+        <td th:text="${etudiant.nomEtudiant}"></td>
+        <td th:text="${etudiant.prenomEtudiant}"></td>
+        <td th:text="${etudiant.ageEtudiant}"></td>
+        <td th:text="${etudiant.genreEtudiant}"></td>
+        <td th:text="${etudiant.numeroTelephoneEtudiant}"></td>
+        <td th:text="${etudiant.emailEtudiant}"></td>
+        <td th:text="${etudiant.adresseEtudiant}"></td>
+        <td th:text="${etudiant.quartierEtudiant}"></td>
+        <td th:text="${etudiant.filiere.nomFiliere}"></td>
+        <td th:text="${etudiant.ecole.nomEcole}"></td>
+        <td>
+            <a th:href="@{/View/etudiantUpdateForm/{idEcole}/{idFiliere}/{idEtudiant}(idEcole=${etudiant.filiere.ecole.idEcole}, idFiliere=${etudiant.filiere.idFiliere}, idEtudiant=${etudiant.idEtudiant})}">
+                <button id="b1">Modifier étudiant</button>
+            </a>
+            <a th:href="@{/View/supprimerEtudiant/{idEcole}/{idFiliere}/{idEtudiant}(idEcole=${etudiant.filiere.ecole.idEcole}, idFiliere=${etudiant.filiere.idFiliere}, idEtudiant=${etudiant.idEtudiant})}">
+                <button id="b2">Supprimer étudiant</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

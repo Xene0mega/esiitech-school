@@ -30,16 +30,18 @@
         <td th:text="${ecole.emailEcole}"></td>
         <td>
             <a th:href="@{/View/filiereForm/{idEcole}(idEcole=${ecole.idEcole})}">
-            <button id="b1">Ajouter Filière</button>
+            <button id="b1">ajouter filière</button>
           </a>
-            <button id="b2">Voir Filières</button>
+            <a th:href="@{/View/afficherFiliereEcole/{idEcole}(idEcole=${ecole.idEcole})}">
+            <button id="b2">voir filières</button>
+            </a>
 
             <a th:href="@{/View/supprimerEcole/{idEcole}(idEcole=${ecole.idEcole})}">
-            <button id="b3">supprimer ecole</button>
+            <button id="b3">supprimer école</button>
             </a>
 
             <a th:href="@{/View/ecoleUpdateForm/{idEcole}(idEcole=${ecole.idEcole})}">
-                <button id="b4">modifier ecole</button>
+                <button id="b4">modifier école</button>
             </a>
         </td>
     </tr>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filieres</title>
+    <link rel="stylesheet" href="/filiereListe.css">
+</head>
+
+<body>
+<a href="/View/getAllEcole">
+    <button>retour à acceil</button>
+</a>
+<table>
+    <thead>
+    <tr>
+        <th>Nom de la filiere</th>
+        <th>ecole</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Boucle pour afficher les écoles -->
+    <tr th:each="filiere : ${filieres}">
+        <td th:text="${filiere.nomFiliere}"></td>
+        <td th:text="${filiere.ecole.nomEcole}"></td>
+        <td>
+            <a th:href="@{/View/matiereForm/{idEcole}/{idFiliere} (idEcole=${filiere.ecole.idEcole}, idFiliere=${filiere.idFiliere})}">
+                <button id="b1">ajouter matière</button>
+            </a>
+            <a th:href="@{/View/afficherMatiereFiliereEcole/{idEcole}/{idFiliere}(idEcole=${filiere.ecole.idEcole}, idFiliere=${filiere.idFiliere})}">
+                <button id="b2">voir matières</button>
+            </a>
+
+            <a th:href="@{/View/supprimerFiliere/{idEcole}/{idFiliere}(idEcole=${filiere.ecole.idEcole}, idFiliere=${filiere.idFiliere})}">
+                <button id="b3">supprimer filière</button>
+            </a>
+
+            <a th:href="@{/View/filiereUpdateForm/{idEcole}/{idFiliere}(idEcole=${filiere.ecole.idEcole}, idFiliere=${filiere.idFiliere})}">
+                <button id="b4">modifier filière</button>
+            </a>
+                <a th:href="@{/View/etudiantForm/{idEcole}/{idFiliere}(idEcole=${filiere.ecole.idEcole}, idFiliere=${filiere.idFiliere})}">
+                    <button id="b5">ajouter étudiant</button>
+                </a>
+            <a th:href="@{/View/afficherEtudiantFiliereEcole/{idEcole}/{idFiliere}(idEcole=${filiere.ecole.idEcole}, idFiliere=${filiere.idFiliere})}">
+                <button id="b6">voir étudiants</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

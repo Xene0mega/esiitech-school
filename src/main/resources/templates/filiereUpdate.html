@@ -2,18 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter Filière</title>
-    <link rel="stylesheet" href="/filiereCreation.css">
+    <title>Modifier Filière</title>
+    <link rel="stylesheet" href="/filiereUpdate.css">
 </head>
 <body>
-<h1>Ajouter une Filière</h1>
-<form th:action="@{/View/ajouterFiliere/{idEcole} (idEcole=${ecole.idEcole})}" th:object="${filiere}" method="post">
+<h1>Modifier Filière</h1>
+<form th:action="@{/View/filiereUpdate/{idEcole}/{idFiliere}(idEcole=${ecole.idEcole}, idFiliere=${filiere.idFiliere})}" th:object="${filiere}" method="post">
     <label for="nomFiliere">Nom de la filière :</label>
     <input type="text" id="nomFiliere" name="nomFiliere" th:field="*{nomFiliere}"  required><br><br>
 
     <input type="hidden"  name="idEcole" th:value="${ecole.idEcole}"  required>
-
     <button type="submit">enregistrer</button>
 </form>
 </body>

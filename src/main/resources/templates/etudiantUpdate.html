@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un étudiant</title>
+    <link rel="stylesheet" href="/etudiantUpdate.css">
+</head>
+<body>
+<h1>Modifier un étudiant</h1>
+<form th:action="@{/View/etudiantUpdate/{idEcole}/{idFiliere}/{idEtudiant}(idEcole=${ecole.idEcole}, idFiliere=${filiere.idFiliere}, idEtudiant=${etudiant.idEtudiant})}" th:object="${etudiant}" method="post">
+
+    <label for="nomEtudiant">Nom :</label>
+    <input type="text" id="nomEtudiant" name="nomEtudiant" th:field="*{nomEtudiant}" required><br><br>
+
+    <label for="prenomEtudiant">Prénom :</label>
+    <input type="text" id="prenomEtudiant" name="prenomEtudiant" th:field="*{prenomEtudiant}" required><br><br>
+
+    <label for="ageEtudiant">Age :</label>
+    <input type="number" id="ageEtudiant" name="ageEtudiant" th:field="*{ageEtudiant}" required><br><br>
+
+    <label for="genreEtudiant">Genre :</label>
+    <input type="text" id="genreEtudiant" name="genreEtudiant" th:field="*{genreEtudiant}" required><br><br>
+
+    <label for="numeroTelephoneEtudiant">Numéro de téléphone :</label>
+    <input type="text" id="numeroTelephoneEtudiant" name="numeroTelephoneEtudiant" th:field="*{numeroTelephoneEtudiant}" required><br><br>
+
+    <label for="emailEtudiant">Email :</label>
+    <input type="email" id="emailEtudiant" name="emailEtudiant" th:field="*{emailEtudiant}" required><br><br>
+
+    <label for="adresseEtudiant">Adresse :</label>
+    <input type="text" id="adresseEtudiant" name="adresseEtudiant" th:field="*{adresseEtudiant}" required><br><br>
+
+    <label for="quartierEtudiant">Quartier :</label>
+    <input type="text" id="quartierEtudiant" name="quartierEtudiant" th:field="*{quartierEtudiant}" required><br><br>
+
+    <input type="hidden" name="idEcole" th:value="${ecole.idEcole}" required>
+    <input type="hidden" name="idFiliere" th:value="${filiere.idFiliere}" required>
+
+    <button type="submit">Enregistrer</button>
+</form>
+</body>
+</html>

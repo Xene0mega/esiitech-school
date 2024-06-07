@@ -48,6 +48,15 @@ public class EcoleService{
         }
         return ecole;
     }
+    public Ecole findAllFiliereEcole(Long idEcole){
+        Ecole ecole = ecoleDao.findById(idEcole).orElse(null);
+        if(ecole!= null){
+             ecole.getFilieres();
+        }else {
+            throw new IllegalArgumentException("Ecole non trouvé avec ID"+ idEcole);
+        }
+        return ecole;
+    }
 
     public List<Ecole> getAllEcole() {
         return ecoleDao.findAll();

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter matière</title>
+    <link rel="stylesheet" href="/matiereUpdate.css">
+</head>
+<body>
+<h1>modifier une matière</h1>
+<form th:action="@{/View/matiereUpdate/{idEcole}/{idFiliere}/{idMatiere}(idEcole=${ecole.idEcole}, idFiliere=${filiere.idFiliere}, idMatiere=${matiere.idMatiere})}" th:object="${matiere}" method="post">
+
+<label for="nomMatiere">Nom de la matière :</label>
+    <input type="text" id="nomMatiere" name="nomMatiere" th:field="*{nomMatiere}" required><br><br>
+
+    <label for="coefficientMatiere">Coefficient de la matière :</label>
+    <input type="number" id="coefficientMatiere" name="coefficientMatiere" th:field="*{coefficientMatiere}" required><br><br>
+
+    <label for="volumeHoraireMatiere">Volume horaire de la matière :</label>
+    <input type="text" id="volumeHoraireMatiere" name="volumeHoraireMatiere" th:field="*{volumeHoraireMatiere}" required><br><br>
+
+    <input type="hidden"  name="idEcole" th:value="${ecole.idEcole}"  required>
+    <input type="hidden"  name="idFiliere" th:value="${filiere.idFiliere}"  required>
+
+    <button type="submit">enregistrer</button>
+</form>
+</body>
+</html>

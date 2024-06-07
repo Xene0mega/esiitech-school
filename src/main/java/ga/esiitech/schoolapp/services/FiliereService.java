@@ -63,6 +63,24 @@ public class FiliereService {
         return filiere;
 
      }
+     public Filiere findAllMatiereFiliere(Long idFiliere){
+        Filiere filiere = filiereDao.findById(idFiliere).orElse(null);
+        if(filiere!= null){
+            filiere.getMatieres();
+        }else{
+            throw new IllegalArgumentException("aucune filière trouvée à l' ID :"+ idFiliere);
+        }
+         return filiere;
+     }
+    public Filiere findAllEtudiantFiliere(Long idFiliere){
+        Filiere filiere = filiereDao.findById(idFiliere).orElse(null);
+        if(filiere!= null){
+            filiere.getEtudiants();
+        }else{
+            throw new IllegalArgumentException("aucune filière trouvée à l' ID :"+ idFiliere);
+        }
+        return filiere;
+    }
 
 
         public Filiere modifierFiliere(Filiere filiere, Long IdFiliere) {

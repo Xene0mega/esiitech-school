@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>liste de matières</title>
+    <link rel="stylesheet" href="/matiereListe.css">
+</head>
+<body>
+<a href="/View/getAllEcole">
+    <button>retour à acceil</button>
+</a>
+<table>
+    <thead>
+    <tr>
+        <th>Nom de la matière</th>
+        <th>Coeficient de la matière</th>
+        <th>Volume horaire de la matière</th>
+        <th>Filière</th>
+        <th>Ecole</th>
+        <th>action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="matiere : ${matieres}">
+        <td th:text="${matiere.nomMatiere}"></td>
+        <td th:text="${matiere.coefficientMatiere}"></td>
+        <td th:text="${matiere.volumeHoraireMatiere}"></td>
+        <td th:text="${matiere.filiere.nomFiliere}"></td>
+        <td th:text="${matiere.ecole.nomEcole}"></td>
+        <td>
+        <a th:href="@{/View/matiereUpdateForm/{idEcole}/{idFiliere}/{idMatiere} (idEcole=${matiere.filiere.ecole.idEcole}, idFiliere=${matiere.filiere.idFiliere}, idMatiere=${matiere.idMatiere})}">
+            <button id="b1">modifier matière</button>
+        </a>
+
+        <a th:href="@{/View/supprimerMatiere/{idEcole}/{idFiliere}/{idMatiere}(idEcole=${matiere.filiere.ecole.idEcole}, idFiliere=${matiere.filiere.idFiliere}, idMatiere=${matiere.idMatiere})}">
+            <button id="b2">supprimer matière</button>
+        </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
