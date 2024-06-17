@@ -3,11 +3,13 @@ package ga.esiitech.schoolapp.controllers;
 import ga.esiitech.schoolapp.entities.Matiere;
 import ga.esiitech.schoolapp.services.MatiereService;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@Controller
 @RequestMapping("/Matieres")
 @RestController
 @AllArgsConstructor

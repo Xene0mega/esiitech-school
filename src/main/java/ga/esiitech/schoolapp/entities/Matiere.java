@@ -9,7 +9,6 @@ import lombok.Setter;
 import java.util.List;
 @Table( name = "matiere")
 @Entity
-
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor

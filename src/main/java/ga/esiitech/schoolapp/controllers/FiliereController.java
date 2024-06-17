@@ -3,12 +3,14 @@ import ga.esiitech.schoolapp.entities.Filiere;
 import ga.esiitech.schoolapp.services.FiliereService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 
+@Controller
 @RequestMapping("/Filieres")
 @RestController
 @AllArgsConstructor

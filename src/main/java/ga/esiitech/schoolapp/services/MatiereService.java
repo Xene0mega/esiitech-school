@@ -3,13 +3,14 @@ package ga.esiitech.schoolapp.services;
 import ga.esiitech.schoolapp.entities.Matiere;
 import ga.esiitech.schoolapp.repos.MatiereDao;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class MatiereService {
 
     private final MatiereDao matiereDao;

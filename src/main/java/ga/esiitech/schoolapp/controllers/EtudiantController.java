@@ -3,11 +3,13 @@ import ga.esiitech.schoolapp.entities.Etudiant;
 import ga.esiitech.schoolapp.services.EtudiantService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@Controller
 @RequestMapping("/Etudiants")
 @RestController
 @AllArgsConstructor
