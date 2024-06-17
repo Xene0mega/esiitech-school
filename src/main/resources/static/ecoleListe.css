@@ -17,6 +17,7 @@ button {
     top: 10px;
     left: 650px;
     border-radius: 15px;
+    margin: 2px;
 }
 
 #b1 {
@@ -46,6 +47,12 @@ button {
     top: 0px;
     padding: 9px;
     background-color: #00698f;
+}
+#b3:hover {
+    background-color: #660000; /* Darker hover color for button #b3 */
+}
+#b4:hover {
+    background-color: #004d66; /* Darker hover color for button #b4 */
 }
 
 button:hover {

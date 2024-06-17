@@ -31,13 +31,20 @@ public class viewController {
     @Autowired
     private final EtudiantService etudiantService;
 
+    //Ce controller va permettre de genrer la premiere vue de mon programme en tapant sur l'url localhost:8080/getAllEcole
+    @GetMapping("/getAllEcole")
+    public ModelAndView getAllEcole() {
+        ModelAndView modelAndView = new ModelAndView("ecoleListe");
+        modelAndView.addObject("ecoles", ecoleService.getAllEcole());
+        return modelAndView;
+    }
+
     @GetMapping("/ecoleForm")
     public ModelAndView creerEcoleForm() {
         ModelAndView modelAndView = new ModelAndView("ecoleCreation");
         modelAndView.addObject("ecole", new Ecole());
         return modelAndView;
     }
-
     @PostMapping("/creerEcole")
     public ModelAndView creerEcole(Ecole ecole) {
         try {
@@ -47,15 +54,6 @@ public class viewController {
             return new ModelAndView("ecoleCreation");
         }
     }
-
-    @GetMapping("/getAllEcole")
-    public ModelAndView getAllEcole() {
-        ModelAndView modelAndView = new ModelAndView("ecoleListe");
-        modelAndView.addObject("ecoles", ecoleService.getAllEcole());
-        return modelAndView;
-    }
-
-
     @GetMapping("/filiereForm/{idEcole}")
     public ModelAndView creerFiliereForm(@PathVariable Long idEcole) {
         ModelAndView modelAndView = new ModelAndView("filiereCreation");
